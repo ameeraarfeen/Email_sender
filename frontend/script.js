@@ -1,7 +1,7 @@
 const sendBtn = document.getElementById("sendBtn");
 const statusText = document.getElementById("status");
 
-sendBtn.addEventListener("click", () => {
+sendBtn.addEventListener("click", async() => {
   const to = document.getElementById("to").value.trim();
   const subject = document.getElementById("subject").value.trim();
   const message = document.getElementById("message").value.trim();
@@ -13,21 +13,27 @@ sendBtn.addEventListener("click", () => {
     return;
   }
 
-  // Fake sending state
   statusText.textContent = "⏳ Sending...";
   statusText.style.color = "cyan";
   sendBtn.disabled = true;
 
-  // Simulate server delay
-  setTimeout(() => {
-    // Fake success
-    statusText.textContent = "✅ Email sent successfully!";
-    statusText.style.color = "lightgreen";
-    sendBtn.disabled = false;
+  try {
+    const response = await fetch("http://127.0.0.1:5000/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ to, subject, message })
+    });
 
-    // Optional: clear form
-    document.getElementById("to").value = "";
-    document.getElementById("subject").value = "";
-    document.getElementById("message").value = "";
-  }, 2000);
+    const data = await response.json();
+
+    if (data.success) {
+      statusText.textContent = "✅ Email sent successfully!";
+    } else {
+      statusText.textContent = "❌ " + data.error;
+    }
+  } catch (error) {
+    statusText.textContent = "❌ Server error.";
+  }
+
+  sendBtn.disabled = false;
 });
