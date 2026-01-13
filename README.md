@@ -1,9 +1,9 @@
-📧 Email Sender Web App
+📧 ##Email Sender Web App
 
 A modern full-stack Email Sender web application built using Flask (Python) and Vanilla JavaScript.
 This project demonstrates frontend–backend communication, secure credential handling, and clean UI design.
 
-✨ Features
+✨ ##Features
 
 🚀 Send emails using SMTP
 
@@ -17,7 +17,7 @@ This project demonstrates frontend–backend communication, secure credential ha
 
 🌐 CORS-enabled API
 
-🛠 Tech Stack
+🛠 ##Tech Stack
 Frontend
 
 HTML5
@@ -40,7 +40,7 @@ python-dotenv
 
 flask-cors
 
-📁 Project Structure
+📁 ##Project Structure
 email-sender-app/
 ├── backend/
 │   ├── app.py
@@ -55,7 +55,7 @@ email-sender-app/
 ├── .gitignore
 └── README.md
 
-⚙️ Environment Variables
+⚙️ ##Environment Variables
 
 Create a .env file inside the backend/ directory.
 
@@ -65,10 +65,10 @@ SMTP_SERVER=smtp.gmail.com
 SMTP_PORT=587
 
 
-⚠️ Never commit your .env file
+⚠️ ##Never commit your .env file
 It is ignored using .gitignore.
 
-🔐 Gmail App Password Setup
+🔐 ##Gmail App Password Setup
 
 Enable 2-Step Verification in your Google Account
 
@@ -80,7 +80,7 @@ Copy the generated password
 
 Paste it into EMAIL_PASSWORD in .env
 
-▶️ Run Locally
+▶️## Run Locally
 1️⃣ Clone the Repository
 git clone https://github.com/ameeraarfeen/email-sender-app.git
 cd email-sender-app
@@ -118,7 +118,7 @@ Success Response
   "success": "Email sent successfully!"
 }
 
-📌 Git & Security Notes
+📌 ##Git & Security Notes
 
 .env is ignored via .gitignore
 
