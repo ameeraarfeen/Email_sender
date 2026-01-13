@@ -1,21 +1,47 @@
-# Email Sender App
+📧 Email Sender Web App
 
-A modern single-page web application to send emails using Flask and JavaScript.
+A modern full-stack Email Sender web application built using Flask (Python) and Vanilla JavaScript.
+This project demonstrates frontend–backend communication, secure credential handling, and clean UI design.
 
-## Features
-- Flask backend with SMTP email sending
-- Environment variable support for security
-- Clean dark UI with glassmorphism design
-- Fetch API based frontend communication
+✨ Features
 
-## Tech Stack
-- Python (Flask)
-- HTML, CSS, JavaScript
-- SMTP (Gmail App Password)
+🚀 Send emails using SMTP
 
-📂 Project Structure
-email-sender/
-│
+🔐 Secure credentials using environment variables
+
+🌙 Dark mode UI with glassmorphism design
+
+⚡ Async email sending with loading indicator
+
+✅ Success & error notifications
+
+🌐 CORS-enabled API
+
+🛠 Tech Stack
+Frontend
+
+HTML5
+
+CSS3 (Glassmorphism, Dark Theme)
+
+Vanilla JavaScript (Fetch API)
+
+Backend
+
+Python
+
+Flask
+
+smtplib
+
+email.message
+
+python-dotenv
+
+flask-cors
+
+📁 Project Structure
+email-sender-app/
 ├── backend/
 │   ├── app.py
 │   ├── requirements.txt
@@ -26,19 +52,12 @@ email-sender/
 │   ├── style.css
 │   └── script.js
 │
+├── .gitignore
 └── README.md
 
-⚙️ Backend Setup
-1️⃣ Clone the Repository
-git clone <https://github.com/ameeraarfeen/Email_sender>
-cd email-sender/backend
+⚙️ Environment Variables
 
-2️⃣ Install Dependencies
-pip install -r requirements.txt
-
-3️⃣ Environment Variable Configuration
-
-Create a .env file inside the backend folder:
+Create a .env file inside the backend/ directory.
 
 EMAIL_ADDRESS=your_email@gmail.com
 EMAIL_PASSWORD=your_app_password
@@ -46,68 +65,63 @@ SMTP_SERVER=smtp.gmail.com
 SMTP_PORT=587
 
 
-⚠️ Do not commit the .env file.
-Use .env.example for reference.
+⚠️ Never commit your .env file
+It is ignored using .gitignore.
 
 🔐 Gmail App Password Setup
 
-If you are using Gmail:
+Enable 2-Step Verification in your Google Account
 
-Enable 2-Step Verification on your Google account
+Go to Google Account → Security → App passwords
 
-Go to Google Account → Security → App Passwords
+Create a password for Mail
 
-Generate a new app password
+Copy the generated password
 
-Use this password in EMAIL_PASSWORD
+Paste it into EMAIL_PASSWORD in .env
 
-▶️ Running the Backend Server
+▶️ Run Locally
+1️⃣ Clone the Repository
+git clone https://github.com/ameeraarfeen/email-sender-app.git
+cd email-sender-app
+
+2️⃣ Backend Setup
+cd backend
+pip install -r requirements.txt
 python app.py
 
 
-The server will start at:
-
+Backend runs at:
 http://127.0.0.1:5000
 
-🌐 Running the Frontend
+3️⃣ Frontend Setup
 
-Open frontend/index.html directly in your browser.
+Open the file below directly in your browser:
 
-⚠️ Make sure the backend server is running before clicking the Send button.
+frontend/index.html
 
-🔁 API Documentation
+🔁 API Endpoint
 POST /send-email
-Request Body (JSON)
+
+Request Body
+
 {
-  "to": "recipient@example.com",
-  "subject": "Email Subject",
-  "message": "Email message content"
+  "to": "receiver@example.com",
+  "subject": "Hello",
+  "message": "This is a test email"
 }
 
-Responses
 
-200 OK – Email sent successfully
+Success Response
 
-400 Bad Request – Missing required fields
+{
+  "success": "Email sent successfully!"
+}
 
-500 Internal Server Error – SMTP or server failure
+📌 Git & Security Notes
 
-🔒 Security Considerations
+.env is ignored via .gitignore
 
-Email credentials are stored using environment variables
+.env.example is included for reference
 
-.env file is excluded via .gitignore
-
-No sensitive information is committed to the repository
-
-✅ Project Status
-
-✔ Frontend completed
-
-✔ Backend email functionality implemented
-
-✔ Secure configuration using environment variables
-
-✔ Ready for testing and deployment
-
-
+No credentials are hardcoded
