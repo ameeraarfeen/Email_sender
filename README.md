@@ -63,6 +63,10 @@ EMAIL_PASSWORD=your_app_password
 SMTP_SERVER=smtp.gmail.com
 SMTP_PORT=587
 
+```
+
+---
+
 ⚠️ Do not commit .env
 It is ignored using .gitignore.
 
