@@ -1,10 +1,15 @@
 const sendBtn = document.getElementById("sendBtn");
 const statusText = document.getElementById("status");
 
+const toInput = document.getElementById("to");
+const subjectInput = document.getElementById("subject");
+const messageInput = document.getElementById("message");
+
+
 sendBtn.addEventListener("click", async() => {
-  const to = document.getElementById("to").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
+  const to = toInput.value.trim();
+  const subject = subjectInput.value.trim();
+  const message = messageInput.value.trim();
 
   // Validation
   if (!to || !subject || !message) {
@@ -28,6 +33,12 @@ sendBtn.addEventListener("click", async() => {
 
     if (data.success) {
       statusText.textContent = "✅ Email sent successfully!";
+
+       // clear form fields
+      toInput.value = "";
+      subjectInput.value = "";
+      messageInput.value = "";
+
     } else {
       statusText.textContent = "❌ " + data.error;
     }
